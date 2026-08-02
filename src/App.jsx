@@ -1,15 +1,37 @@
-import { useEmployees } from './hooks/useEmployees';
+import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import DashboardLayout from './components/layout/DashboardLayout';
+
+const DashboardHome = lazy(() => import('./pages/DashboardHome'));
+const EmployeeDirectory = lazy(() => import('./pages/EmployeeDirectory'));
+const EmployeeDetail = lazy(() => import('./pages/EmployeeDetail'));
+const Profile = lazy(() => import('./pages/Profile'));
+
+function PageFallback() {
+  return <div className="p-6 animate-pulse text-sm text-gray-400">Loading page…</div>;
+}
 
 export default function App() {
-  const { data, loading, error } = useEmployees();
-
-  if (loading) return <div className="p-4">Loading...</div>;
-  if (error) return <div className="p-4 text-red-500">Error: {error}</div>;
-
   return (
-    <div className="p-4">
-      <p>Loaded {data.length} employees</p>
-      <pre className="text-xs">{JSON.stringify(data[0], null, 2)}</pre>
-    </div>
+    <Routes>
+      <Route element={<DashboardLayout />}>
+        <Route
+          index
+          element={<Suspense fallback={<PageFallback />}><DashboardHome /></Suspense>}
+        />
+        <Route
+          path="employees"
+          element={<Suspense fallback={<PageFallback />}><EmployeeDirectory /></Suspense>}
+        />
+        <Route
+          path="employees/:id"
+          element={<Suspense fallback={<PageFallback />}><EmployeeDetail /></Suspense>}
+        />
+        <Route
+          path="profile"
+          element={<Suspense fallback={<PageFallback />}><Profile /></Suspense>}
+        />
+      </Route>
+    </Routes>
   );
 }
