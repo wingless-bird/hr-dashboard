@@ -51,19 +51,19 @@ export default function EmployeeDetail() {
           </span>
         </div>
       </div>
-
-      <dl className="grid grid-cols-[100px_1fr] gap-y-3 text-sm bg-white dark:bg-surface-dark-alt rounded p-5 shadow-sm">
-        <dt className="text-gray-400 font-semibold">Email</dt>
-        <dd>{employee.email}</dd>
-        <dt className="text-gray-400 font-semibold">Phone</dt>
-        <dd>{employee.phone}</dd>
-        <dt className="text-gray-400 font-semibold">Country</dt>
-        <dd>{employee.country}</dd>
-        <dt className="text-gray-400 font-semibold">Age</dt>
-        <dd>{employee.age}</dd>
-        <dt className="text-gray-400 font-semibold">Registered</dt>
-        <dd>{new Date(employee.registeredDate).toLocaleDateString()}</dd>
-      </dl>
+<dl className="grid grid-cols-[100px_1fr] gap-y-3 text-sm bg-white dark:bg-surface-dark-alt rounded p-5 shadow-sm">
+  <dt className="text-gray-400 font-semibold">Email</dt>
+  <dd className="min-w-0 break-words">{employee.email}</dd>
+  <dt className="text-gray-400 font-semibold">Phone</dt>
+  <dd className="min-w-0 break-words">{employee.phone}</dd>
+  <dt className="text-gray-400 font-semibold">Country</dt>
+  <dd className="min-w-0 break-words">{employee.country}</dd>
+  <dt className="text-gray-400 font-semibold">Age</dt>
+  <dd className="min-w-0 break-words">{employee.age}</dd>
+  <dt className="text-gray-400 font-semibold">Registered</dt>
+  <dd className="min-w-0 break-words">{new Date(employee.registeredDate).toLocaleDateString()}</dd>
+</dl>
+      
     </div>
   );
 }

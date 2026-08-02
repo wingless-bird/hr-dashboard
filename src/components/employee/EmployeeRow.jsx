@@ -1,4 +1,3 @@
-// src/components/employee/EmployeeRow.jsx
 import { Link } from 'react-router-dom';
 
 export default function EmployeeRow({ employee }) {
@@ -17,7 +16,9 @@ export default function EmployeeRow({ employee }) {
       <div className="min-w-0 flex-1">
         <p className="font-semibold truncate">{employee.fullName}</p>
         <p className="text-xs text-gray-400 truncate">{employee.email}</p>
+        <p className="text-xs text-gray-400 truncate sm:hidden">{employee.phone}</p>
       </div>
+      <p className="text-sm text-gray-400 hidden sm:block w-32 truncate">{employee.phone}</p>
       <p className="text-sm text-gray-400 hidden lg:block w-24 truncate">{employee.country}</p>
       <span
         className={`text-xs font-bold px-3 py-1 rounded-full shrink-0

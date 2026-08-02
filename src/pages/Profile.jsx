@@ -27,17 +27,17 @@ export default function Profile() {
           <p className="text-sm text-gray-400">{me.email}</p>
         </div>
       </div>
-
-      <dl className="grid grid-cols-[100px_1fr] gap-y-3 text-sm bg-white dark:bg-surface-dark-alt rounded p-5 shadow-sm">
-        <dt className="text-gray-400 font-semibold">Phone</dt>
-        <dd>{me.phone}</dd>
-        <dt className="text-gray-400 font-semibold">Country</dt>
-        <dd>{me.country}</dd>
-        <dt className="text-gray-400 font-semibold">Age</dt>
-        <dd>{me.age}</dd>
-        <dt className="text-gray-400 font-semibold">Gender</dt>
-        <dd className="capitalize">{me.gender}</dd>
-      </dl>
+  <dl className="grid grid-cols-[100px_1fr] gap-y-3 text-sm bg-white dark:bg-surface-dark-alt rounded p-5 shadow-sm">
+  <dt className="text-gray-400 font-semibold">Phone</dt>
+  <dd className="min-w-0 break-words">{me.phone}</dd>
+  <dt className="text-gray-400 font-semibold">Country</dt>
+  <dd className="min-w-0 break-words">{me.country}</dd>
+  <dt className="text-gray-400 font-semibold">Age</dt>
+  <dd className="min-w-0 break-words">{me.age}</dd>
+  <dt className="text-gray-400 font-semibold">Gender</dt>
+  <dd className="min-w-0 break-words capitalize">{me.gender}</dd>
+</dl>
+      
     </div>
   );
 }
